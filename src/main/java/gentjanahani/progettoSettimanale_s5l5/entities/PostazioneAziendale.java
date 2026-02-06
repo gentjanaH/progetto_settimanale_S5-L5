@@ -20,6 +20,7 @@ public class PostazioneAziendale {
     @Column(name = "descrizione", nullable = false)
     private String descrizione;
     @Column(name = "tipo_postazione", nullable = false)
+    @Enumerated(EnumType.STRING)
     private TipoPostazione tipoPostazione;
     @Column(name = "capienza_massima", nullable = false)
     private int capienzaMassima;
@@ -56,7 +57,7 @@ public class PostazioneAziendale {
                 ", tipoPostazione=" + tipoPostazione +
                 ", capienzaMassima=" + capienzaMassima +
                 ", edificio=" + edificio +
-                ", prenotazioni=" + prenotazioni +
+//                ", prenotazioni=" + prenotazioni +
                 '}';
     }
 }
