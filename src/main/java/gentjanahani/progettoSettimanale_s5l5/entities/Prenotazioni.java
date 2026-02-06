@@ -36,6 +36,13 @@ public class Prenotazioni {
 
     }
 
+    public Prenotazioni(LocalDate dataPrenotazione, PostazioneAziendale postazione, Utente utente) {
+
+        this.dataPrenotazione = dataPrenotazione;
+        this.postazione = postazione;
+        this.utente = utente;
+    }
+
     @Override
     public String toString() {
         return "Prenotazioni{" +
