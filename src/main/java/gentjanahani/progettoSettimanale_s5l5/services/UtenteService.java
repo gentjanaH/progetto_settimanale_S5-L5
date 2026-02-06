@@ -23,6 +23,8 @@ public class UtenteService {
     }
 
     public void saveUtente(Utente newUtente) {
+        if (utenteRepository.existsByEmail(newUtente.getEMail()))
+            throw new ValidationException("Email " + newUser.getEmail() + " già presente");
         this.utenteRepository.save(newUtente);
         log.info("L'utente con {} è stato salvato correttamente", newUtente.getIdUtente());
     }
