@@ -67,8 +67,8 @@ public class Runner2 implements CommandLineRunner {
 
             //ora devo creare delle prenotazioni
             //controllare che lo stesso utente non possa prenotare due sale lo stesso giorno.
-//            prenotazioniService.createAndSavePrenotazione(LocalDate.of(2026, 5, 10), pos4FromDb, u4FromDb);
-            postazioneService.filterByTypeAndCity(TipoPostazione.OPENSPACE, "Milano");
+            prenotazioniService.createAndSavePrenotazione(LocalDate.of(2026, 5, 10), pos4FromDb, u4FromDb);
+//            postazioneService.filterByTypeAndCity(TipoPostazione.OPENSPACE, "Milano");
         } catch (NotFoundException ex) {
             log.info(ex.getMessage());
         } catch (PostazioneOccupataException ex2) {

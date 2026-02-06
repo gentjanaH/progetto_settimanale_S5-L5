@@ -24,8 +24,9 @@ public class PrenotazioniService {
     public Prenotazioni createAndSavePrenotazione(LocalDate data, PostazioneAziendale location, Utente utente) {
 
         boolean occupata = prenotazioniRepository.existsByDataPrenotazioneAndPostazione(data, location);
+        boolean giaImpegnato = prenotazioniRepository.existsByDataPrenotazioneAndUtente(data, utente);
 
-        if (occupata) {
+        if (occupata || giaImpegnato) {
             throw new PostazioneOccupataException();
         }
 
