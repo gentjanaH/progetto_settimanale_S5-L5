@@ -10,7 +10,6 @@ import java.util.UUID;
 @Table(name = "PRENOTAZIONI")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Prenotazioni {
     @Id
@@ -31,6 +30,11 @@ public class Prenotazioni {
     @ManyToOne
     @JoinColumn(name = "utente_id")
     private Utente utente;
+
+    public Prenotazioni(LocalDate dataPrenotazione) {
+        this.dataPrenotazione = dataPrenotazione;
+
+    }
 
     @Override
     public String toString() {

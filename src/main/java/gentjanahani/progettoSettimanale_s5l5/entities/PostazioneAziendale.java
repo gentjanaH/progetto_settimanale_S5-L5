@@ -11,7 +11,6 @@ import java.util.UUID;
 @Table(name = "POSTAZIONE")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class PostazioneAziendale {
     @Id
@@ -33,6 +32,21 @@ public class PostazioneAziendale {
     //relazione one to many con prenotazione
     @OneToMany(mappedBy = "postazione")
     private List<Prenotazioni> prenotazioni = new ArrayList<>();
+
+    public PostazioneAziendale(String descrizione, TipoPostazione tipoPostazione, int capienzaMassima) {
+        this.descrizione = descrizione;
+        this.tipoPostazione = tipoPostazione;
+        this.capienzaMassima = capienzaMassima;
+
+    }
+
+    public PostazioneAziendale(String descrizione, TipoPostazione tipoPostazione, int capienzaMassima, Edificio edificio) {
+
+        this.descrizione = descrizione;
+        this.tipoPostazione = tipoPostazione;
+        this.capienzaMassima = capienzaMassima;
+        this.edificio = edificio;
+    }
 
     @Override
     public String toString() {

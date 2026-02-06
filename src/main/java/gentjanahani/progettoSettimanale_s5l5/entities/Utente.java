@@ -12,7 +12,6 @@ import java.util.UUID;
 @Table(name = "UTENTE")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Utente {
     @Id
@@ -28,6 +27,12 @@ public class Utente {
 
     @OneToMany(mappedBy = "utente")
     private List<Prenotazioni> prenotazioni = new ArrayList<>();
+
+    public Utente(String userName, String nome, String eMail) {
+        this.userName = userName;
+        this.nome = nome;
+        this.eMail = eMail;
+    }
 
     @Override
     public String toString() {
