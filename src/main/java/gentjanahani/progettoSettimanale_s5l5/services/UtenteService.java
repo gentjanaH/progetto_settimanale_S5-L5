@@ -3,6 +3,7 @@ package gentjanahani.progettoSettimanale_s5l5.services;
 import gentjanahani.progettoSettimanale_s5l5.entities.Edificio;
 import gentjanahani.progettoSettimanale_s5l5.entities.Utente;
 import gentjanahani.progettoSettimanale_s5l5.exceptions.NotFoundException;
+import gentjanahani.progettoSettimanale_s5l5.exceptions.ValidationException;
 import gentjanahani.progettoSettimanale_s5l5.repositories.UtenteRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class UtenteService {
 
     public void saveUtente(Utente newUtente) {
         if (utenteRepository.existsByEmail(newUtente.getEMail()))
-            throw new ValidationException("Email " + newUser.getEmail() + " già presente");
+            throw new ValidationException("Email " + newUtente.getEMail() + " già presente");
         this.utenteRepository.save(newUtente);
         log.info("L'utente con {} è stato salvato correttamente", newUtente.getIdUtente());
     }
